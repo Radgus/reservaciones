@@ -16,7 +16,7 @@ Pasos para ejecutar el programa
 
     npm start
 
-Nota: hsta este punto solo se tiene desarrollado un diseño sencillo del fronend, falta agregar funcionalidad.
+Nota: hasta este punto solo se tiene desarrollado un diseño sencillo del frontend, falta agregar funcionalidad.
 
 Falta hacer backend con los endpoints del diseño.
 
