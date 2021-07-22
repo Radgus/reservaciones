@@ -1,5 +1,8 @@
 Este proyecto está destinado a usar el MERN Stack.
 
+Importante!!!
+El diseño de la aplicacion se encuentra en la ruta src/resources/Diseño.jpg
+
 Pasos para ejecutar el programa
 
 1.- Descargar del repositorio
