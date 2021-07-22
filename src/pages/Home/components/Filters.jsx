@@ -19,7 +19,7 @@ const Filter = Styled.div`
   }
 `;
 
-const Filters = () => {
+const Filters = ({handleDate, valueDate, handleHour}) => {
   return (
     <Container>
       <Filter>
@@ -28,15 +28,16 @@ const Filters = () => {
           type="date"
           id="start"
           name="reservation-start"
-          value="2021-07-22"
+          value={valueDate}
           min="2021-07-01"
           max="2025-12-31"
+          onChange={handleDate}
         />
       </Filter>
 
       <Filter>
         <p>Hora: </p>
-        <select name="select">
+        <select name="select" onChange={handleHour}>
           <option value="13:00" selected>
             13:00
           </option>

@@ -27,19 +27,19 @@ const RestaurantCard = Styled.div`
   }
 `;
 
-const Restaurants = () => {
+const Restaurants = ({onClick}) => {
 
   return(
     <Container>
-      <RestaurantCard>
+      <RestaurantCard onClick={()=>onClick('norte')}>
         <h4>Restaurante</h4>
         <h4>Norte</h4>
       </RestaurantCard>
-      <RestaurantCard>
+      <RestaurantCard onClick={()=>onClick('centro')}>
         <h4>Restaurante</h4>
         <h4>Centro</h4>
       </RestaurantCard>
-      <RestaurantCard>
+      <RestaurantCard onClick={()=>onClick('sur')}>
         <h4>Restaurante</h4>
         <h4>Sur</h4>
       </RestaurantCard>

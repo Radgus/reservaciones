@@ -45,10 +45,10 @@ const Sections = ({section, mesas}) => {
         <h3>Sección: {section}</h3>
       </Section>
       <Container>
-        {mesas.map(mesa=>(
+        {mesas && mesas.map(mesa=>(
           <TableCard>
-          <h2>Mesa {mesa}</h2>
-        </TableCard>
+            <h2>Mesa {mesa}</h2>
+          </TableCard>
         ))}
       </Container>
     </>
