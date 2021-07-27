@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Styled from 'styled-components';
 
 const Container = Styled.div`
@@ -6,13 +6,13 @@ const Container = Styled.div`
   height: 100vh;
   padding: 20% 30%;
   box-sizing: border-box;
-  background-color: pink;
 `;
 
 const Main = Styled.div`
-  border: 2px solid white;
+  border: 2px solid black;
   border-radius: 15px;
   padding: 15px 30px;
+  background-color: pink;
   .inputs {
     display: flex;
     flex-direction: column;
@@ -56,10 +56,24 @@ const Main = Styled.div`
 
 
 const Login = () => {
+  const [form, setForm] = useState({
+    email: '',
+    password: '',
+  });
+
+  useEffect(() => {
+    console.log('form: ', form);
+  }, [form])
+
+  const handleChange = (e, property) => {
+    const temporalForm = {...form};
+    temporalForm[property] = e.target.value;
+    setForm(temporalForm);
+  }
 
   const handleSubmit = (e) => {
-    console.log('enviar form');
     e.preventDefault();
+    console.log('submit');
   }
   
   return (
@@ -67,22 +81,23 @@ const Login = () => {
       <Main>
         <form onSubmit={handleSubmit}>
           <div className='inputs'>
-            <label for="user">Usuario </label>
+            <label for="email">Usuario </label>
             <input
               type="text"
-              id="user"
+              id="email"
               name="reservation-user"
-              // value={valueDate}
-              // onChange={handleDate}
-              />
+              value={form.email}
+              onChange={(e) => handleChange(e,'email')}
+              placeholder='Escribe tu email . . .'
+            />
             <label for="password">Password </label>
             <input
               type="password"
               id="password"
               name="reservation-password"
-              // value={valueDate}
-              // onChange={handleDate}
-              />
+              value={form.password}
+              onChange={(e) => handleChange(e,'password')}
+            />
           </div>
           <div className='submit'>
             <button type='submit'>Enviar</button>
