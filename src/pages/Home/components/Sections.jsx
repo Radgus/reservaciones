@@ -10,7 +10,7 @@ const Container = Styled.div`
 `;
 
 const TableCard = Styled.div`
-  width: 22%;
+  width: 18%;
   height: 95px;
   background-color: #c8c7c7;
   border: 5px solid white;
@@ -23,6 +23,11 @@ const TableCard = Styled.div`
   h2 {
     text-align: center;
     margin: 0;
+  }
+  @media (max-width: 374px) {
+    h2 {
+      font-size: 1rem;
+    }
   }
   &: hover {
     border: 5px solid black;

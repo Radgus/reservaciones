@@ -22,6 +22,9 @@ const RestaurantCard = Styled.div`
     text-align: center;
     margin: 0;
   }
+  @media (max-width: 374px) {
+    font-size: 0.8rem;
+  }
   &: hover {
     border: 5px solid red;
   }

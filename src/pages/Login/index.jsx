@@ -1,18 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import Styled from 'styled-components';
+import axios from 'axios';
 
 const Container = Styled.div`
   width: 100vw;
   height: 100vh;
   padding: 20% 30%;
   box-sizing: border-box;
+  font-weight: 500;
 `;
 
 const Main = Styled.div`
-  border: 2px solid black;
   border-radius: 15px;
   padding: 15px 30px;
-  background-color: pink;
+  background-color: deepskyblue;
   .inputs {
     display: flex;
     flex-direction: column;
@@ -73,7 +74,27 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submit');
+    console.log('submit ', form);
+    const apiUrl = `http://localhost:4000/v1/api/auth/sign-in`;
+    console.log('apiUrl: ', apiUrl);
+    axios({
+      url: apiUrl,
+      method: 'post',
+      auth: {
+        password: form.password,
+        username: form.email
+      },
+    })
+    .then(({ data }) => {
+      document.cookie = `email=${data.user.email}`;
+      document.cookie = `name=${data.user.name}`;
+      document.cookie = `id=${data.user.id}`;
+      document.cookie = `token=${data.token}`;
+    })
+    .then(() => {
+      window.location.href = '/';
+    })
+    .catch((error) => console.log('Error catch handle login submit: ', error));
   }
   
   return (

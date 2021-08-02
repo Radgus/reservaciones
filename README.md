@@ -16,8 +16,12 @@ Pasos para ejecutar el programa
 
     npm start
 
-Nota: hasta este punto solo se tiene desarrollado un diseño sencillo del frontend, falta agregar funcionalidad.
+Nota: hasta este punto solo se tiene desarrollado un diseño sencillo del frontend. Tiene un
+sistema sencillo de logueo con Basic strategy, puede usar las siguientes credenciales.
 
-Falta hacer backend con los endpoints del diseño.
+user:       guest_email@gmail.com
+password:   12345678
 
-Falta crear la base de datos.
+Este repositorio solo es el fron-end, se complementa con el repositorio reservation-backend.
+
+Falta hacer varios endpoints del diseño.

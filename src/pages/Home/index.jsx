@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Restaurants from './components/Restaurants';
 import Filters from './components/Filters';
 import Sections from './components/Sections';
+import { createGlobalStyle } from 'styled-components';
 
  
 
@@ -10,7 +11,15 @@ const Home = () => {
   const [restaurant, setRestaurant] = useState('norte');
   const [date, setDate] = useState('2021-07-22');
   const [hour, setHour] = useState('13:00');
+  
+  let cookies = document.cookie.split(';');
 
+  useEffect(() => {
+    if (cookies.length <= 1) {
+      window.location.href = '/login';
+    }
+  }, [])
+  
   useEffect(() => {
     console.log('Se actualizó date o hour');
   }, [date, hour])
