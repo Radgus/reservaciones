@@ -4,7 +4,7 @@ import Styled from "styled-components";
 const Container = Styled.div`
   display: flex;
   justify-content: space-evenly;
-  padding: 15px 10px;
+  padding: 1.5rem 1rem;
 `;
 
 const Filter = Styled.div`
@@ -12,10 +12,10 @@ const Filter = Styled.div`
   display: flex;
   p {
     margin: 0;
-    margin-right: 5px;
+    margin-right: 0.5rem;
   }
   label {
-    margin-right: 5px;
+    margin-right: 0.5rem;
   }
 `;
 

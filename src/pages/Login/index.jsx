@@ -1,57 +1,64 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Styled from 'styled-components';
-import axios from 'axios';
+import UserMaker from '../../resources/users';
+
+// import axios from 'axios';
 
 const Container = Styled.div`
   width: 100vw;
   height: 100vh;
-  padding: 20% 30%;
+  padding: 10%;
   box-sizing: border-box;
   font-weight: 500;
+  display: flex;
+  align-items: center;
 `;
 
 const Main = Styled.div`
-  border-radius: 15px;
-  padding: 15px 30px;
+  border-radius: 1.5rem;
+  padding: 1.5rem 3rem;
   background-color: deepskyblue;
   .inputs {
     display: flex;
     flex-direction: column;
-    margin: 15px 0 0 0;
+    margin: 1.5rem 0 0 0;
+    label {
+      font-size: 1.2rem
+    }
   }
   input {
-    border-radius: 8px;
+    border-radius: 0.8rem;
     border: none;
     width: 100%;
-    padding-left: 15px;
+    padding-left: 1.5rem;
     box-sizing: border-box;
-    margin: 10px 0 25px 0;
-    height: 30px;
+    margin: 1rem 0 2.5rem 0;
+    height: 3rem;
     outline: none;
   }
   .submit {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 10px 0 0 0;
+    margin: 1rem 0 0 0;
   }
   button {
     background-color: white;
-    border-radius: 8px;
-    border: 2px solid white;
+    border-radius: 0.8rem;
+    border: 0.2rem solid white;
     width: 50%;
-    height: 35px;
+    height: 3.5rem;
   }
   button:hover {
-    border: 2px solid black;
+    border: 0.2rem solid black;
     background-color: lightcyan;
   }
   .registro {
     display: flex;
-    margin-top: 15px;
+    margin-top: 1.5rem;
   }
   p {
-    font-size: 0.75rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -61,10 +68,9 @@ const Login = () => {
     email: '',
     password: '',
   });
-
-  useEffect(() => {
-    console.log('form: ', form);
-  }, [form])
+  const userMaker = new UserMaker();
+  const usersList = userMaker.getList()
+  console.log("usersList: ", usersList)
 
   const handleChange = (e, property) => {
     const temporalForm = {...form};
@@ -72,30 +78,51 @@ const Login = () => {
     setForm(temporalForm);
   }
 
+  const validUser = () => new Promise((resolve, reject)=>{
+    const search = usersList.some((user) => (user.user === form.email && user.password === form.password))
+    if (search) return resolve(true)
+    else reject(alert("Usuario o contraseña incorrectos"))
+  })
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submit ', form);
-    const apiUrl = `http://localhost:4000/v1/api/auth/sign-in`;
-    console.log('apiUrl: ', apiUrl);
-    axios({
-      url: apiUrl,
-      method: 'post',
-      auth: {
-        password: form.password,
-        username: form.email
-      },
-    })
-    .then(({ data }) => {
-      document.cookie = `email=${data.user.email}`;
-      document.cookie = `name=${data.user.name}`;
-      document.cookie = `id=${data.user.id}`;
-      document.cookie = `token=${data.token}`;
-    })
-    .then(() => {
-      window.location.href = '/';
+    validUser()
+    .then((validator) => {
+      console.log('validator: ', validator)
+      if (validator) {
+        document.cookie = `email=${form.email}`;
+        document.cookie = `name=${form.email}`;
+        window.location.href = '/';
+      }
     })
     .catch((error) => console.log('Error catch handle login submit: ', error));
   }
+
+  // remote API, no used for now
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log('submit ', form);
+  //   const apiUrl = `http://localhost:4000/v1/api/auth/sign-in`;
+  //   console.log('apiUrl: ', apiUrl);
+  //   axios({
+  //     url: apiUrl,
+  //     method: 'post',
+  //     auth: {
+  //       password: form.password,
+  //       username: form.email
+  //     },
+  //   })
+  //   .then(({ data }) => {
+  //     document.cookie = `email=${data.user.email}`;
+  //     document.cookie = `name=${data.user.name}`;
+  //     document.cookie = `id=${data.user.id}`;
+  //     document.cookie = `token=${data.token}`;
+  //   })
+  //   .then(() => {
+  //     window.location.href = '/';
+  //   })
+  //   .catch((error) => console.log('Error catch handle login submit: ', error));
+  // }
   
   return (
     <Container>
@@ -126,7 +153,7 @@ const Login = () => {
         </form>
         <div className='registro'>
           <p>Regístrate en el siguiente link: &nbsp;
-            <a href="#">Registro</a>
+            <a href="/register">Registro</a>
           </p> 
         </div>
       </Main>

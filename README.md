@@ -16,11 +16,10 @@ Pasos para ejecutar el programa
 
     npm start
 
-Nota: hasta este punto solo se tiene desarrollado un diseño sencillo del frontend. Tiene un
-sistema sencillo de logueo con Basic strategy, puede usar las siguientes credenciales.
+Nota: hasta este punto solo se tiene desarrollado un diseño sencillo del frontend. Tiene un sistema sencillo de logueo con Basic strategy, puede usar las siguientes credenciales.
 
-user:       guest_email@gmail.com
-password:   12345678
+user:       guest@mail.com
+password:   123
 
 Este repositorio solo es el fron-end, se complementa con el repositorio reservation-backend.
 

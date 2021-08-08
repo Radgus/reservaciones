@@ -5,13 +5,13 @@ const Container = Styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding: 15px 10px;
-  margin: 15px 0px;
+  margin: 1rem 0;
+  padding: 1rem;
 `;
 
 const TableCard = Styled.div`
-  width: 18%;
-  height: 95px;
+  width: 22%;
+  height: 50px;
   background-color: #c8c7c7;
   border: 5px solid white;
   border-radius: 8px;
@@ -20,14 +20,11 @@ const TableCard = Styled.div`
   align-items: center;
   cursor: pointer;
   margin: 3px 0px;
-  h2 {
+  h3 {
     text-align: center;
+    font-size: 1.4rem;
+    font-weight: 400;
     margin: 0;
-  }
-  @media (max-width: 374px) {
-    h2 {
-      font-size: 1rem;
-    }
   }
   &: hover {
     border: 5px solid black;
@@ -35,7 +32,8 @@ const TableCard = Styled.div`
 `;
 
 const Section = Styled.div`
-  margin: 25px 0;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
   border-top: 1px solid black;
   h3 {
     text-align: center;
@@ -52,7 +50,7 @@ const Sections = ({section, mesas}) => {
       <Container>
         {mesas && mesas.map(mesa=>(
           <TableCard>
-            <h2>Mesa {mesa}</h2>
+            <h3>Mesa {mesa}</h3>
           </TableCard>
         ))}
       </Container>
