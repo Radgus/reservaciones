@@ -1,5 +1,9 @@
 import React from 'react';
 import Styled from 'styled-components';
+const color = {
+  empty: '#c8c7c7',
+  reserved: '#A6FDD0'
+}
 
 const Container = Styled.div`
   display: flex;
@@ -9,25 +13,48 @@ const Container = Styled.div`
   padding: 1rem;
 `;
 
+const SetTable = Styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+`;
+
+const SetChair = Styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;
+
+const Chair = Styled.div`
+  width: 1.6rem;
+  height: 0;
+  border: 0.2rem solid brown;
+`;
+
 const TableCard = Styled.div`
-  width: 22%;
-  height: 50px;
-  background-color: #c8c7c7;
-  border: 5px solid white;
-  border-radius: 8px;
+  width: 7rem;
+  height: 7rem;
+  background-color: #A6FDD1;
+  border: 3px solid white;
+  border-radius: 1.6rem;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin: 3px 0px;
   h3 {
+    width: 2.7rem;
+    height: 2.7rem;
     text-align: center;
     font-size: 1.4rem;
     font-weight: 400;
     margin: 0;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   &: hover {
-    border: 5px solid black;
+    border: 3px solid black;
   }
 `;
 
@@ -49,9 +76,19 @@ const Sections = ({section, mesas}) => {
       </Section>
       <Container>
         {mesas && mesas.map(mesa=>(
-          <TableCard>
-            <h3>Mesa {mesa}</h3>
-          </TableCard>
+          <SetTable>
+            <SetChair>
+              <Chair />
+              <Chair />
+            </SetChair>
+            <TableCard>
+              <h3>T{mesa}</h3>
+            </TableCard>
+            <SetChair>
+              <Chair />
+              <Chair />
+            </SetChair>
+          </SetTable>
         ))}
       </Container>
     </>
