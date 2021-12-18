@@ -103,7 +103,7 @@ const Login = () => {
       if (validator) {
         document.cookie = `email=${form.email}`;
         document.cookie = `name=${form.email}`;
-        window.location.href = '/reservation';
+        window.location.href = '/reservaciones';
       }
     })
     .catch((error) => console.log('Error catch handle login submit: ', error));
@@ -130,7 +130,7 @@ const Login = () => {
   //     document.cookie = `token=${data.token}`;
   //   })
   //   .then(() => {
-  //     window.location.href = '/';
+  //     window.location.href = 'reservaciones';
   //   })
   //   .catch((error) => console.log('Error catch handle login submit: ', error));
   // }

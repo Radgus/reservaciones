@@ -20,7 +20,7 @@ class UserMaker {
     user: form.email,
     password: form.password,
     })
-    // window.location.href = '/';
+    // window.location.href = 'reservaciones';
   }
   getList() {
     return this.usersList;
