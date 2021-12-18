@@ -8,16 +8,18 @@ const Container = Styled.div`
   width: 100vw;
   height: 100vh;
   padding: 10%;
-  box-sizing: border-box;
   font-weight: 500;
   display: flex;
+  justify-content: center;
   align-items: center;
+  background-color: lightcyan;
 `;
 
 const Main = Styled.div`
   border-radius: 1.5rem;
   padding: 1.5rem 3rem;
-  background-color: deepskyblue;
+  background-color: white;
+  border: 0.2rem solid deepskyblue;
   .inputs {
     display: flex;
     flex-direction: column;
@@ -35,6 +37,7 @@ const Main = Styled.div`
     margin: 1rem 0 2.5rem 0;
     height: 3rem;
     outline: none;
+    border: 0.1rem solid deepskyblue;
   }
   .submit {
     width: 100%;
@@ -48,6 +51,7 @@ const Main = Styled.div`
     border: 0.2rem solid white;
     width: 50%;
     height: 3.5rem;
+    border: 0.1rem solid deepskyblue;
   }
   button:hover {
     border: 0.2rem solid black;
@@ -56,6 +60,13 @@ const Main = Styled.div`
   .registro {
     display: flex;
     margin-top: 1.5rem;
+    a {
+      text-decoration: none;
+      color: orangered;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
   }
   p {
     font-size: 1.2rem;
@@ -136,7 +147,7 @@ const Login = () => {
               name="reservation-user"
               value={form.email}
               onChange={(e) => handleChange(e,'email')}
-              placeholder='Escribe tu email . . .'
+              placeholder='email . . .'
             />
             <label for="password">Password </label>
             <input
@@ -145,6 +156,7 @@ const Login = () => {
               name="reservation-password"
               value={form.password}
               onChange={(e) => handleChange(e,'password')}
+              placeholder='password . . .'
             />
           </div>
           <div className='submit'>
