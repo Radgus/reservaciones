@@ -31,7 +31,7 @@ const Identity = Styled.div`
 const logout = () => {
   document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-  window.location.href = '/login';
+  window.location.href = '/reservation/login';
 }
 
 const Header = () => {

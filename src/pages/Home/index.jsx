@@ -16,7 +16,7 @@ const Home = () => {
 
   useEffect(() => {
     if (cookies.length <= 1) {
-      window.location.href = '/login';
+      window.location.href = '/reservation/login';
     }
   }, [])
   

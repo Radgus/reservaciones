@@ -103,7 +103,7 @@ const Login = () => {
       if (validator) {
         document.cookie = `email=${form.email}`;
         document.cookie = `name=${form.email}`;
-        window.location.href = '/';
+        window.location.href = '/reservation';
       }
     })
     .catch((error) => console.log('Error catch handle login submit: ', error));
