@@ -14,11 +14,11 @@ const Home = () => {
   
   let cookies = document.cookie.split(';');
 
-  useEffect(() => {
-    if (cookies.length <= 1) {
-      window.location.href = '/reservaciones/login';
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (cookies.length <= 1) {
+  //     window.location.href = '/reservaciones/login';
+  //   }
+  // }, [])
   
   useEffect(() => {
     console.log('Se actualizó date o hour');
